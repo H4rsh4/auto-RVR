@@ -1,3 +1,6 @@
 {
-    "python.pythonPath": "py\\Scripts\\python.exe"
+    "python.pythonPath": "py\\Scripts\\python.exe",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
