@@ -11,8 +11,8 @@ from statistics import mean
 
 
 image_hub = imagezmq.ImageHub()
-stop_sign_classifier = "road-sign-cascades\Stop Signs\StopSign_HAAR\Stopsign_HAAR_19Stages.xml"
-stop_sign_classifier = cv2.CascadeClassifier(stop_sign_classifier)
+#stop_sign_classifier = "road-sign-cascades\Stop Signs\StopSign_HAAR\Stopsign_HAAR_19Stages.xml"
+#stop_sign_classifier = cv2.CascadeClassifier(stop_sign_classifier)
 
 def roi(img, vertices):
     mask = np.zeros_like(img)
@@ -146,11 +146,11 @@ while True:
     rpi_name, image = image_hub.recv_image()
     image = np.rot90(image, 2)
     new_screen = process_img(image)
-    image,stop_sign_presence = detect_stop_sign(stop_sign_classifier, image, draw=True)
+    #image,stop_sign_presence = detect_stop_sign(stop_sign_classifier, image, draw=True)
     #print(f'Took this long : {round(time.time()-int(rpi_name))}')
-    if stop_sign_presence:
-            print("STOP!!!")
-    else: print("GO!!!")
+    # if stop_sign_presence:
+    #         print("STOP!!!")
+    # else: print("GO!!!")
     cv2.imshow('stop', image)
     cv2.imshow('line', new_screen)
     if cv2.waitKey(25) & 0xFF == ord('q'):
